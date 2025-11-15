@@ -1,0 +1,677 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-flash",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-flash"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=={{ $json.articlesContent }}\n\nYou are creating a dynamic, conversational podcast script featuring TWO hosts discussing this week's most interesting insights from the UX/design world. Think NotebookLM's Audio Overview style - natural, engaging dialogue between two curious minds.\n\nCONTEXT:\nToday's date is {{ $now.toFormat('EEEE, MMMM d, yyyy') }}\nArticles analyzed: {{ $json.articleCount }} from {{ $json.sourceCount }} sources\nSource breakdown: {{ $json.sourceBreakdown }}\nTime window: {{ $json.timeWindow }}\n\nYOUR TASK:\nAnalyze ALL {{ $json.articleCount }} articles above and synthesize them into 2-4 major THEMES. Create a ~15 minute conversational podcast (2200-2400 words) that explores these themes through the lens of multiple articles.\n\n**YOUR ENTIRE RESPONSE should be one continuous text block containing:**\n1. The podcast dialogue (HOST A and HOST B conversation)\n2. Followed immediately by the ---ARTICLES_DISCUSSED--- section\n3. Followed immediately by the ---EPISODE_TITLE--- section\n\nDo NOT use section headers like \"SECTION 1\" or \"SECTION 2\". Just output the content in order.\n\nSYNTHESIS METHODOLOGY:\n\n1. **Read ALL articles** - Don't skip any, every article contributes to pattern recognition\n2. **Identify recurring themes** - What ideas, challenges, or trends appear across multiple sources?\n3. **Group articles by theme** - Cluster related articles together (e.g., \"AI in Design\", \"User Psychology\", \"Design Systems\", \"Career Growth\")\n4. **Find diverse perspectives** - Within each theme, look for different viewpoints, approaches, or case studies\n5. **Create narrative arcs** - Each theme should tell a story with insights from 3-5 articles\n6. **Connect themes** - Show how themes relate to or build upon each other\n\nTHEME IDENTIFICATION CRITERIA:\n\nStrong themes have:\n- Multiple articles (3-5+) discussing related concepts\n- Practical relevance to UX/product/design professionals\n- Actionable insights or frameworks\n- Different perspectives or case studies to compare\n- Clear narrative potential for conversation\n\nExample themes:\n- \"The Evolution of AI Tools in Design Workflows\"\n- \"Breaking Through Design System Constraints\"\n- \"User Research Methods for Remote Teams\"\n- \"Career Transitions in Product Design\"\n- \"Accessibility as a Competitive Advantage\"\n\nTONE AND MOOD GUIDELINES:\n**Overall vibe:** Casually professional, intellectually curious, like a deep conversation between friends over coffee\n\n**HOST A:**\n- Thoughtful, insightful, brings depth and analysis\n- Uses expressions: \"You know what's interesting...\", \"Here's the thing...\", \"Actually...\", \"Right\"\n- Good at synthesizing ideas and asking probing questions\n- Slightly more analytical and measured\n\n**HOST B:**\n- Enthusiastic, curious, often expresses surprise and excitement\n- Uses expressions: \"Oh wow\", \"That's fascinating\", \"Wait, so...\", \"Exactly!\", \"I love that\"\n- Great at making connections and relating to practical applications\n- More energetic and reactive\n\n**CONVERSATIONAL RHYTHM:**\n- Use natural, spoken language - avoid overly formal or written tone\n- Include natural hesitations and thinking markers (\"Hmm...\", \"Let me think...\", \"So...\")\n- Allow interruptions and overlaps (\"Oh! And...\", \"Wait, that's...\", \"Yes! Plus...\")\n- Express genuine reactions (\"I didn't see that coming\", \"That makes so much sense\")\n- Use rhetorical questions to engage (\"Don't you think?\", \"Right?\")\n- Vary sentence length - mix short punchy statements with longer explanations\n\n**NATURAL DIALOGUE PATTERNS:**\n- Build on each other's points: \"Exactly, and what's more...\", \"That reminds me of...\"\n- Show active listening: \"Mm-hmm\", \"For sure\", \"I see what you're saying\"\n- Express agreement with variety: \"Totally\", \"Absolutely\", \"Couldn't agree more\"\n- Friendly disagreement or nuance: \"Well, maybe...\", \"I'd push back on that slightly...\"\n- Shared discovery moments: \"Ooh, that's a great point\", \"I hadn't thought of it that way\"\n\nSTRUCTURE FOR ~15 MINUTE EPISODE (2200-2400 words):\n\n**OPENING (150-200 words):**\nHOST A: Hook with the week's macro insight - \"So I spent the week reading through articles from [sources], and there are some really clear patterns emerging...\"\nHOST B: Natural curiosity - \"Oh? What are you seeing?\"\nHOST A: Preview the 2-4 major themes you'll explore\nHOST B: React and set up first theme\n\n**THEME 1: [Theme Name] (650-750 words):**\n- Introduce the theme and why it matters\n- Reference 3-5 articles that explore this theme\n- Compare different perspectives: \"While [Source A] argues X, [Source B] takes a different angle...\"\n- Include practical examples from the articles\n- Natural dialogue flow, building the narrative together\n- Transition: \"And that actually connects to something else I noticed...\"\n\n**THEME 2: [Theme Name] (650-750 words):**\n- Build on or contrast with Theme 1\n- Synthesize 3-5 articles around this theme\n- Show how different sources complement or challenge each other\n- Include real-world applications\n- Make connections explicit: \"This relates back to what we were saying about...\"\n\n**THEME 3: [Theme Name] (500-600 words):**\n(Optional - use if you have a strong third theme)\n- Explore the final major pattern\n- Reference 2-4 articles\n- Connect back to earlier themes\n- Show the bigger picture\n\n**SYNTHESIS & CLOSING (200-250 words):**\nHOST A: Pull themes together - \"So if we step back and look at all this together...\"\nHOST B: Add the meta-insight - \"What's really interesting is how all these connect...\"\nHOST A: Practical takeaway or reflection question for listeners\nHOST B: Warm, conversational close - \"This was a great deep dive. See you next week!\"\n\n**IMMEDIATELY AFTER THE CLOSING, WITHOUT ANY BREAK, ADD:**\n\n---ARTICLES_DISCUSSED---\nTheme 1: [Exact theme name from your podcast]\n[Article 3], [Article 5], [Article 7], [Article 11], [Article 12]\n\nTheme 2: [Exact theme name from your podcast]  \n[Article 1], [Article 8], [Article 14], [Article 19]\n\nTheme 3: [Exact theme name from your podcast]\n[Article 2], [Article 16], [Article 20], [Article 22]\n---END_ARTICLES---\n\n---EPISODE_TITLE---\n[Your 5-10 word episode title]\n---END_TITLE---\n\n**DO NOT write \"SECTION 2\" or \"SECTION 3\" - just output the --- markers and content directly after the hosts sign off.**\n\nDIALOGUE FORMAT - CRITICAL:\nYou MUST use exactly \"HOST A:\" and \"HOST B:\" as speaker labels.\nDO NOT use character names like \"ENCELADUS:\" or \"ERINOME:\".\nDO NOT add parentheses with names like \"HOST A (Enceladus):\".\n\nCorrect format:\nHOST A: [dialogue]\nHOST B: [dialogue]\n\nHOW TO REFERENCE ARTICLES:\n\nInstead of: \"Article 5 says...\" or \"According to Article 12...\"\nUse natural references like:\n- \"There was this piece in [Source Name] about...\"\n- \"I came across an article from [Source/Author] that explored...\"\n- \"[Source Name] had an interesting take on this...\"\n- \"Multiple sources - [Source A], [Source B] - are saying...\"\n\nCRITICAL RULES:\n\n- **Synthesize ALL articles** - every article should inform your theme identification\n- **Group by themes, not sources** - organize around ideas, not individual articles\n- **Show connections** - explicitly link related insights across sources\n- **Compare perspectives** - highlight when sources agree, disagree, or complement each other\n- **Be specific** - reference actual insights, frameworks, or examples from the articles\n- **Make it conversational** - sound like two people discovering patterns together\n- **Include article numbers** - track which articles you reference for each theme\n- Keep total word count between 2200-2400 words\n- **MANDATORY OUTPUT SECTIONS** - Your response must include THREE sections in this exact order:\n  1. The podcast script (conversation between HOST A and HOST B)\n  2. The articles discussed section (formatted as shown below)\n  3. The episode title section (formatted as shown below)\n\n**YOU MUST OUTPUT ALL THREE SECTIONS. DO NOT STOP AFTER THE PODCAST SCRIPT.**\n\nEPISODE TITLE:\n**THIS IS SECTION 3 - MANDATORY OUTPUT**\n\nAfter the articles discussed section, create a compelling episode title.\n\nFormat it exactly like this:\n\n---EPISODE_TITLE---\n[Your creative, engaging title here - 5-10 words max]\n---END_TITLE---\n\nExample:\n---EPISODE_TITLE---\nAI, Accountability, and Design's Cultural Power\n---END_TITLE---"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        -784,
+        -16
+      ],
+      "id": "afc6affe-7c5d-4ff1-9e6b-c6abcd37ed35",
+      "name": "Message a model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "R5PjyIVu6eYrrZTw",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Filter and process content - SCALABLE for any number of sources\nconst items = $input.all();\nconst sevenDaysAgo = new Date();\nsevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);\n\nconst processedContent = {\n  rssArticles: [],\n  timestamp: new Date().toISOString()\n};\n\nconst seenUrls = new Set();\nconst sourceCounts = {};\n\nitems.forEach((item, index) => {\n  const data = item.json;\n  \n  if (data.title && data.link && data.pubDate) {\n    const pubDate = new Date(data.pubDate);\n    \n    // Only articles from last 7 days\n    if (pubDate > sevenDaysAgo && !seenUrls.has(data.link)) {\n      seenUrls.add(data.link);\n      \n      // Try to get feed source from various possible fields\n      let feedSource = data.feed?.title || \n                       data.meta?.title ||\n                       data.feed?.link ||\n                       data.meta?.link;\n      \n      // If still no source, try to infer from the pairedItem (which node it came from)\n      if (!feedSource && item.pairedItem) {\n        const sourceNode = item.pairedItem;\n        feedSource = 'RSS Feed'; // Default fallback\n      }\n      \n      // Last resort: parse from URL and map to friendly names\n      if (!feedSource || feedSource === 'RSS Feed') {\n        const urlMatch = data.link.match(/^https?:\\/\\/([^\\/]+)/);\n        if (urlMatch) {\n          const domain = urlMatch[1].replace('www.', '');\n          \n          // Map domains to friendly names\n          if (domain.includes('uxdesign.cc')) feedSource = 'UX Collective';\n          else if (domain.includes('uxplanet.org')) feedSource = 'UX Planet';\n          else if (domain.includes('prototypr.io')) feedSource = 'Prototypr';\n          else if (domain.includes('uxpin.com')) feedSource = 'UX Pin';\n          else if (domain.includes('smashingmagazine.com')) feedSource = 'Smashing Magazine';\n          else if (domain.includes('intercom.com')) feedSource = 'Intercom';\n          else if (domain.includes('nngroup.com')) feedSource = 'Nielsen Norman Group';\n          else if (domain.includes('producttalk.org')) feedSource = 'Product Talk';\n          else if (domain.includes('lennysnewsletter.com')) feedSource = \"Lenny's Newsletter\";\n          else feedSource = domain;\n        } else {\n          feedSource = 'Unknown Source';\n        }\n      }\n      \n      // Get author separately\n      const author = data['dc:creator'] || \n                     data.creator || \n                     '';\n      \n      // Track article count per source\n      sourceCounts[feedSource] = (sourceCounts[feedSource] || 0) + 1;\n      \n      let content = data['content:encoded'] || \n                    data.content || \n                    data.description || \n                    data.contentSnippet || \n                    data.summary || \n                    'No content available';\n      \n      // Increase content length for longer episodes\n      content = content.replace(/<[^>]*>/g, ' ')\n                       .replace(/\\s+/g, ' ')\n                       .trim()\n                       .substring(0, 5000);  // Increased from 3000 to 5000\n      \n      processedContent.rssArticles.push({\n        title: data.title,\n        link: data.link,\n        description: content,\n        source: feedSource,\n        author: author,\n        date: pubDate.toISOString()\n      });\n    }\n  }\n});\n\n// Sort by date (newest first)\nprocessedContent.rssArticles.sort((a, b) => new Date(b.date) - new Date(a.date));\n\n// Get unique sources\nconst uniqueSources = [...new Set(processedContent.rssArticles.map(a => a.source))];\n\n// Format for Gemini with clear structure\nconst articlesText = processedContent.rssArticles.map((article, index) => \n  `[Article ${index + 1}]\nSource: ${article.source}\nAuthor: ${article.author}\nTitle: ${article.title}\nDate: ${new Date(article.date).toLocaleString()}\nContent: ${article.description}\nURL: ${article.link}\n`\n).join('\\n---\\n');\n\n// Create summary statistics\nconst sourceBreakdown = Object.entries(sourceCounts)\n  .map(([source, count]) => `${source}: ${count} article${count > 1 ? 's' : ''}`)\n  .join(', ');\n\nreturn [{\n  json: {\n    articlesContent: articlesText,\n    articleCount: processedContent.rssArticles.length,\n    sourceCount: uniqueSources.length,\n    sources: uniqueSources,\n    sourceBreakdown: sourceBreakdown,\n    generatedAt: new Date().toISOString(),\n    timeWindow: '7 days'\n  }\n}];"
+      },
+      "id": "72004ac2-3376-4333-a159-2b0f3ae8c0e6",
+      "name": "Process & Filter Content",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1120,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\nlet fullText = '';\n\n// Try different possible structures\nif (Array.isArray(input)) {\n  if (input[0]?.content?.parts?.[0]?.text) {\n    fullText = input[0].content.parts[0].text;\n  }\n} else if (input.content?.parts?.[0]?.text) {\n  fullText = input.content.parts[0].text;\n} else if (input.text) {\n  fullText = input.text;\n} else if (input.message) {\n  fullText = input.message;\n}\n\nif (!fullText) {\n  throw new Error('Could not extract content from Gemini response.');\n}\n\n// Extract episode title\nconst titleMatch = fullText.match(/---EPISODE_TITLE---([\\s\\S]*?)---END_TITLE---/);\nlet episodeTitle = '';\n\nif (titleMatch) {\n  episodeTitle = titleMatch[1].trim();\n  console.log('Episode title:', episodeTitle);\n}\n\n// Split script and article references\nconst articleSectionMatch = fullText.match(/---ARTICLES_DISCUSSED---([\\s\\S]*?)---END_ARTICLES---/);\nlet script = fullText;\nlet discussedArticleNumbers = [];\n\nif (articleSectionMatch) {\n  // Extract article numbers\n  const articleSection = articleSectionMatch[1];\n  const articleMatches = articleSection.match(/\\[Article (\\d+)\\]/g);\n  \n  if (articleMatches) {\n    discussedArticleNumbers = articleMatches.map(match => {\n      const num = match.match(/\\d+/);\n      return num ? parseInt(num[0]) : null;\n    }).filter(n => n !== null);\n  }\n  \n  // Remove article section from script\n  script = fullText.replace(/---ARTICLES_DISCUSSED---[\\s\\S]*?---END_ARTICLES---/, '').trim();\n}\n\n// Remove title section from script\nscript = script.replace(/---EPISODE_TITLE---[\\s\\S]*?---END_TITLE---/, '').trim();\n\n// Clean script\nscript = script\n  .replace(/\\*\\*\\(.*?\\)\\*\\*/g, '')\n  .replace(/\\(.*?Music.*?\\)/gi, '')\n  .replace(/\\*\\*HOST/g, 'HOST')\n  .replace(/\\*\\*/g, '')\n  .replace(/\\*([^*]+)\\*/g, '$1')\n  .replace(/^\\s*\\n/gm, '')\n  .trim();\n\nconsole.log('=== CLEANED SCRIPT ===');\nconsole.log('Episode title:', episodeTitle);\nconsole.log('First 500 chars:', script.substring(0, 500));\nconsole.log('Discussed articles:', discussedArticleNumbers);\n\nreturn [{\n  json: {\n    script: script,\n    episodeTitle: episodeTitle || 'Weekly UX & Design Insights',\n    characterCount: script.length,\n    wordCount: script.split(/\\s+/).length,\n    discussedArticleNumbers: discussedArticleNumbers\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -464,
+        -16
+      ],
+      "id": "9dd26ebb-0f80-4091-877d-cadb43373967",
+      "name": "Extract script"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://texttospeech.googleapis.com/v1/text:synthesize",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        80,
+        0
+      ],
+      "id": "5a0f738c-c941-479f-ad33-340ffbf42d54",
+      "name": "HTTP Request",
+      "credentials": {
+        "googleApi": {
+          "id": "KmJ2uBQPvBS7N3pY",
+          "name": "Google Service Account account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the response from HTTP Request\nconst response = $input.first().json;\n\n// Extract the base64 audio content\nconst audioContent = response.audioContent;\n\nif (!audioContent) {\n  throw new Error('No audioContent in response');\n}\n\n// Convert base64 to binary buffer\nconst audioBuffer = Buffer.from(audioContent, 'base64');\n\n// Get the item index from n8n's execution context\nconst itemIndex = $itemIndex;\n\n// Return the audio segment as WAV\nreturn [{\n  binary: {\n    data: {\n      data: audioBuffer.toString('base64'),\n      mimeType: 'audio/wav',           // Changed to WAV\n      fileName: `segment_${itemIndex}.wav`,  // Changed extension\n      fileExtension: 'wav'              // Changed extension\n    }\n  },\n  json: {\n    index: itemIndex,\n    size: audioBuffer.length\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        256,
+        0
+      ],
+      "id": "6d160281-0017-4b1c-b862-0d2e1a79d6a1",
+      "name": "Decode audio"
+    },
+    {
+      "parameters": {
+        "sendTo": "hi.jieyun@gmail.com",
+        "subject": "==🎧 {{ $('Extract script').first().json.episodeTitle }} - {{ $now.toFormat('MMMM d, yyyy') }}",
+        "message": "=<html>\n<body style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;\">\n  <h2 style=\"color: #333;\">🎧 {{ $('Extract script').first().json.episodeTitle }}</h2>\n  \n  <p style=\"color: #666; margin-top: 10px;\">Your weekly deep-dive podcast is ready!</p>\n  \n  <div style=\"background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 20px 0;\">\n    <p style=\"margin: 5px 0;\">{{ $now.toFormat('EEEE, MMMM d, yyyy') }}</p>\n  </div>\n  \n  <hr style=\"border: none; border-top: 1px solid #ddd; margin: 30px 0;\">\n  \n  <h3 style=\"color: #333;\">📚 Themes & articles discussed:</h3>\n  \n  {{ $('Prepare email content').first().json.articlesHtml }}\n</body>\n</html>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        992,
+        -32
+      ],
+      "id": "03f08cd8-1103-46ce-9541-8ad67cf950fe",
+      "name": "Send a message",
+      "webhookId": "e4875472-8b62-41c0-bbf4-96f375334e1b",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "B2szU8el4GNGiR96",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const segment = $input.first().json;\n\n// Choose voice based on speaker\nconst voiceConfig = segment.speaker === 'A' \n  ? {\n      languageCode: \"en-US\",\n      \"name\": \"en-us-Chirp3-HD-Alnilam\"\n    }\n  : {\n      languageCode: \"en-US\",\n      \"name\": \"en-us-Chirp3-HD-Aoede\"\n    };\n\nreturn [{\n  json: {\n    input: {\n      text: segment.text\n    },\n    voice: voiceConfig,\n    audioConfig: {\n      audioEncoding: \"LINEAR16\",  // WAV format instead of MP3\n      sampleRateHertz: 24000,     // Required for LINEAR16\n      speakingRate: 1.0,\n      pitch: 0.0\n    }\n  },\n  pairedItem: {\n    speaker: segment.speaker,\n    index: segment.index\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -64,
+        16
+      ],
+      "id": "38a2c3d8-93ea-4839-801b-5de51a6e748b",
+      "name": "Build TTS request"
+    },
+    {
+      "parameters": {
+        "jsCode": "const script = $input.first().json.script;\n\nconsole.log('=== SCRIPT DEBUG ===');\nconsole.log('Script length:', script.length);\n\n// Split by lines and clean each line\nconst lines = script.split('\\n')\n  .map(line => line.trim())\n  .filter(line => {\n    // Filter out empty lines and stage directions\n    if (!line) return false;\n    if (line.match(/^\\(.*\\)$/)) return false; // Skip (parenthetical)\n    if (line.match(/music/i) && line.match(/^\\(/)) return false; // Skip music cues\n    return true;\n  });\n\nconsole.log('Cleaned lines count:', lines.length);\nconsole.log('First 5 lines:', lines.slice(0, 5));\n\nconst segments = [];\nlet currentSpeaker = null;\nlet currentText = '';\n\nfor (const line of lines) {\n  // Match HOST A variations (with or without name in parentheses)\n  if (line.match(/^HOST\\s*A\\s*(\\([^)]*\\))?\\s*:/i)) {\n    // Save previous segment\n    if (currentText && currentSpeaker) {\n      segments.push({ \n        speaker: currentSpeaker, \n        text: currentText.trim(),\n        index: segments.length \n      });\n    }\n    currentSpeaker = 'A';\n    currentText = line.replace(/^HOST\\s*A\\s*(\\([^)]*\\))?\\s*:/i, '').trim();\n    \n  } else if (line.match(/^HOST\\s*B\\s*(\\([^)]*\\))?\\s*:/i)) {\n    // Save previous segment\n    if (currentText && currentSpeaker) {\n      segments.push({ \n        speaker: currentSpeaker, \n        text: currentText.trim(),\n        index: segments.length \n      });\n    }\n    currentSpeaker = 'B';\n    currentText = line.replace(/^HOST\\s*B\\s*(\\([^)]*\\))?\\s*:/i, '').trim();\n    \n  } else if (currentSpeaker && line) {\n    // Continue current speaker's text\n    currentText += ' ' + line;\n  }\n}\n\n// Add last segment\nif (currentText && currentSpeaker) {\n  segments.push({ \n    speaker: currentSpeaker, \n    text: currentText.trim(),\n    index: segments.length \n  });\n}\n\nconsole.log(`\\n=== SEGMENTS FOUND ===`);\nconsole.log(`Total segments: ${segments.length}`);\nsegments.slice(0, 3).forEach((seg, i) => {\n  console.log(`Segment ${i} (Speaker ${seg.speaker}): \"${seg.text.substring(0, 80)}...\"`);\n});\n\nif (segments.length === 0) {\n  console.error('=== NO SEGMENTS FOUND ===');\n  console.error('Cleaned script preview:', script.substring(0, 1000));\n  throw new Error('No HOST A: or HOST B: markers found. Check cleaned script above.');\n}\n\nreturn segments.map(seg => ({ json: seg }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -288,
+        0
+      ],
+      "id": "5ae0d5f2-01ff-4f4b-a9d6-248ac02de459",
+      "name": "Split by speakers"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Collect all podcast segments\nconst items = $input.all();\n\nconsole.log(`Merging ${items.length} WAV segments`);\n\n// WAV format parameters\nconst sampleRate = 24000;\nconst numChannels = 1;\nconst bitsPerSample = 16;\n\n// Process segments in batches to reduce memory pressure\nconst BATCH_SIZE = 10;\nconst batches = [];\n\nfor (let i = 0; i < items.length; i += BATCH_SIZE) {\n  const batchItems = items.slice(i, i + BATCH_SIZE);\n  const batchBuffers = batchItems.map(item => {\n    const fullBuffer = Buffer.from(item.binary.data.data, 'base64');\n    return fullBuffer.slice(44); // Skip header\n  });\n  batches.push(Buffer.concat(batchBuffers));\n  console.log(`Processed batch ${Math.floor(i/BATCH_SIZE) + 1}`);\n}\n\n// Combine all batches\nconst combinedAudioData = Buffer.concat(batches);\nconst totalAudioBytes = combinedAudioData.length;\n\nconsole.log(`Total audio: ${totalAudioBytes} bytes`);\n\n// Create WAV header\nconst wavHeader = Buffer.alloc(44);\nwavHeader.write('RIFF', 0);\nwavHeader.writeUInt32LE(36 + totalAudioBytes, 4);\nwavHeader.write('WAVE', 8);\nwavHeader.write('fmt ', 12);\nwavHeader.writeUInt32LE(16, 16);\nwavHeader.writeUInt16LE(1, 20);\nwavHeader.writeUInt16LE(numChannels, 22);\nwavHeader.writeUInt32LE(sampleRate, 24);\nwavHeader.writeUInt32LE(sampleRate * numChannels * bitsPerSample / 8, 28);\nwavHeader.writeUInt16LE(numChannels * bitsPerSample / 8, 32);\nwavHeader.writeUInt16LE(bitsPerSample, 34);\nwavHeader.write('data', 36);\nwavHeader.writeUInt32LE(totalAudioBytes, 40);\n\nconst finalWavBuffer = Buffer.concat([wavHeader, combinedAudioData]);\nconst fileName = `podcast_${new Date().toISOString().split('T')[0]}.wav`;\n\nconsole.log(`Created ${fileName}: ${finalWavBuffer.length} bytes`);\n\nreturn [{\n  binary: {\n    data: {\n      data: finalWavBuffer.toString('base64'),\n      mimeType: 'audio/wav',\n      fileName: fileName,\n      fileExtension: 'wav'\n    }\n  },\n  json: {\n    fileName: fileName,\n    segments: items.length,\n    size: finalWavBuffer.length,\n    duration: `${(totalAudioBytes / (sampleRate * numChannels * bitsPerSample / 8)).toFixed(1)}s`\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        464,
+        -32
+      ],
+      "id": "e35f21ad-4885-4b6e-90d7-10a237fe2bb3",
+      "name": "Merge audio files"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -112,
+        -384
+      ],
+      "id": "c5aa3ac2-8c3c-408a-b381-58ad1487fd60",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtHour": 20
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1920,
+        0
+      ],
+      "id": "71e4860e-3fc7-4145-a1ea-57ef2bdc0773",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "numberInputs": 9
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -1328,
+        -128
+      ],
+      "id": "574a7f06-410e-434c-9935-d9ea09850ff2",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "url": "https://uxdesign.cc/feed",
+        "options": {}
+      },
+      "id": "fb19b04f-78e9-4f3e-8152-655e599eb4aa",
+      "name": "UX collective",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        -1568,
+        -16
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://www.uxpin.com/studio/blog/category/ux-design/feed/",
+        "options": {}
+      },
+      "id": "9132e5e2-5704-4145-a7d8-9af9dd48685f",
+      "name": "UX Pin",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        -1568,
+        -352
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://blog.prototypr.io/feed",
+        "options": {}
+      },
+      "id": "6b7b8ed8-7e04-4157-aae5-dfaaf4b8a509",
+      "name": "Prototypr",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        -1568,
+        144
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get the original article data and the script\nconst articlesData = $('Process & Filter Content').first().json;\nconst scriptData = $('Extract script').first().json;\nconst fullScript = scriptData.script;\n\n// Parse all articles into a lookup object\nconst allArticles = articlesData.articlesContent.split('\\n---\\n').map((block, index) => {\n  const sourceMatch = block.match(/Source: (.+)/);\n  const authorMatch = block.match(/Author: (.+)/);\n  const titleMatch = block.match(/Title: (.+)/);\n  const urlMatch = block.match(/URL: (.+)/);\n  const contentMatch = block.match(/Content: (.+)/);\n  \n  return {\n    articleNumber: index + 1,\n    source: sourceMatch ? sourceMatch[1].trim() : '',\n    author: authorMatch ? authorMatch[1].trim() : '',\n    title: titleMatch ? titleMatch[1].trim() : '',\n    url: urlMatch ? urlMatch[1].trim() : '',\n    content: contentMatch ? contentMatch[1].substring(0, 300) : ''\n  };\n});\n\n// Try to parse themes from script first\nconst articleSectionMatch = fullScript.match(/---ARTICLES_DISCUSSED---([^]*?)---END_ARTICLES---/);\n\nlet themeGroups = [];\n\nif (articleSectionMatch) {\n  // Gemini successfully outputted themes - parse them\n  const articleSection = articleSectionMatch[1].trim();\n  const lines = articleSection.split('\\n').filter(line => line.trim());\n  \n  let currentTheme = null;\n  \n  lines.forEach(line => {\n    if (!line.trim().startsWith('[Article')) {\n      currentTheme = line.replace(/^Theme \\d+:\\s*/i, '').trim();\n      themeGroups.push({\n        theme: currentTheme,\n        articles: []\n      });\n    } else {\n      const articleMatches = line.match(/\\[Article (\\d+)\\]/g);\n      if (articleMatches && currentTheme) {\n        const articleNumbers = articleMatches.map(match => {\n          const num = match.match(/\\d+/);\n          return num ? parseInt(num[0]) : null;\n        }).filter(n => n !== null);\n        \n        const lastTheme = themeGroups[themeGroups.length - 1];\n        articleNumbers.forEach(num => {\n          const article = allArticles.find(a => a.articleNumber === num);\n          if (article) {\n            lastTheme.articles.push(article);\n          }\n        });\n      }\n    }\n  });\n}\n\n// Fallback: Smart grouping based on order of appearance in discussedArticleNumbers\nif (themeGroups.length === 0) {\n  const discussedNums = scriptData.discussedArticleNumbers || [];\n  \n  // Intelligently split into 3 groups based on position\n  const totalArticles = discussedNums.length;\n  const group1End = Math.ceil(totalArticles / 3);\n  const group2End = Math.ceil((totalArticles * 2) / 3);\n  \n  const group1Articles = discussedNums.slice(0, group1End)\n    .map(num => allArticles.find(a => a.articleNumber === num))\n    .filter(a => a);\n    \n  const group2Articles = discussedNums.slice(group1End, group2End)\n    .map(num => allArticles.find(a => a.articleNumber === num))\n    .filter(a => a);\n    \n  const group3Articles = discussedNums.slice(group2End)\n    .map(num => allArticles.find(a => a.articleNumber === num))\n    .filter(a => a);\n  \n  themeGroups = [\n    {\n      theme: \"AI Integration & Accountability\",\n      articles: group1Articles\n    },\n    {\n      theme: \"Design's Strategic Business Impact\",\n      articles: group2Articles\n    },\n    {\n      theme: \"User Psychology & Cultural Implications\",\n      articles: group3Articles\n    }\n  ].filter(g => g.articles.length > 0);\n}\n\n// Generate HTML organized by themes\nconst articlesHtml = themeGroups.map(group => {\n  const articlesInTheme = group.articles.map(article => {\n    const showAuthor = article.author && article.author !== article.source;\n    \n    return `\n<div style=\"margin-bottom: 20px; padding: 15px; border-left: 3px solid #4A90E2; background: #f9f9f9;\">\n  <h4 style=\"margin: 0 0 5px 0; font-size: 16px; font-weight: 600;\">\n    <a href=\"${article.url}\" style=\"color: #4A90E2; text-decoration: none;\">${article.title}</a>\n  </h4>\n  <p style=\"margin: 0 0 10px 0; color: #999; font-size: 13px; font-weight: 400;\">\n    ${article.source}${showAuthor ? ' ⋅ ' + article.author : ''}\n  </p>\n  <p style=\"margin: 0; color: #555; line-height: 1.5; font-size: 14px;\">\n    ${article.content}...\n  </p>\n</div>`;\n  }).join('');\n  \n  return `\n<div style=\"margin-bottom: 35px;\">\n  <h3 style=\"color: #333; font-size: 18px; margin: 0 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #4A90E2;\">\n    ${group.theme}\n  </h3>\n  ${articlesInTheme}\n</div>`;\n}).join('');\n\nconsole.log('Themes found:', themeGroups.length);\nconsole.log('Theme names:', themeGroups.map(g => g.theme));\nconsole.log('Total articles:', themeGroups.reduce((sum, g) => sum + g.articles.length, 0));\n\nreturn [{\n  json: {\n    articlesHtml: articlesHtml,\n    themeGroups: themeGroups\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        -32
+      ],
+      "id": "72751343-5b2a-4374-b3b6-dcb58dac7246",
+      "name": "Prepare email content"
+    },
+    {
+      "parameters": {
+        "url": "https://uxplanet.org/feed",
+        "options": {}
+      },
+      "id": "896a2eef-2e11-49d8-83c3-7b3b094d692b",
+      "name": "UX Planet",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        -1568,
+        -176
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const articleCount = $input.first().json.articleCount;\n\nif (articleCount < 1) {\n  throw new Error('Not enough articles for podcast (found ' + articleCount + ')');\n}\n\nreturn [$input.first()];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -960,
+        0
+      ],
+      "id": "20a7024c-d2ce-4dd9-bf35-b97808ff7e96",
+      "name": "Check if enough articles"
+    },
+    {
+      "parameters": {
+        "url": "https://www.nngroup.com/feed/rss/",
+        "options": {}
+      },
+      "id": "febebff9-f16c-46bc-91f3-37fe4545755a",
+      "name": "NNG",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        -1568,
+        672
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://www.intercom.com/blog/feed/",
+        "options": {}
+      },
+      "id": "bd3dcc84-ba42-473e-8e40-29d3cb115522",
+      "name": "Intercom",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        -1568,
+        496
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://www.producttalk.org/rss/",
+        "options": {}
+      },
+      "id": "abf990c4-9c6e-48ca-9eb1-592dd3127594",
+      "name": "Product Talk",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        -1568,
+        832
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://www.smashingmagazine.com/feed/",
+        "options": {}
+      },
+      "id": "b4f8d775-e771-468b-9b6d-f510d0c4725c",
+      "name": "Smashing Magazine",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        -1568,
+        320
+      ],
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://www.lennysnewsletter.com/feed",
+        "options": {}
+      },
+      "id": "7e41791b-f109-42a7-85b8-343885ecffa2",
+      "name": "Lenny's newsletter",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [
+        -1568,
+        992
+      ],
+      "retryOnFail": true
+    }
+  ],
+  "connections": {
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Extract script",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process & Filter Content": {
+      "main": [
+        [
+          {
+            "node": "Check if enough articles",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract script": {
+      "main": [
+        [
+          {
+            "node": "Split by speakers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Decode audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Decode audio": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        []
+      ]
+    },
+    "Build TTS request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split by speakers": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge audio files": {
+      "main": [
+        [
+          {
+            "node": "Prepare email content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Merge audio files",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build TTS request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "UX Pin",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "UX Planet",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "UX collective",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prototypr",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Smashing Magazine",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Intercom",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "NNG",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Product Talk",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Lenny's newsletter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Process & Filter Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UX collective": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "UX Pin": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prototypr": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Prepare email content": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UX Planet": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Check if enough articles": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NNG": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 6
+          }
+        ]
+      ]
+    },
+    "Intercom": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 5
+          }
+        ]
+      ]
+    },
+    "Product Talk": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 7
+          }
+        ]
+      ]
+    },
+    "Smashing Magazine": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "Lenny's newsletter": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 8
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "79d8d796ceca909ddc6985ab75665b741991e075fc8dee28da8e6be281688fcb"
+  }
+}
